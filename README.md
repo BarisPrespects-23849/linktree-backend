@@ -1,7 +1,3 @@
-Below is a final version of a GitHub-compatible README file in Markdown format. You can copy and paste this content into your repository’s `README.md` file:
-
----
-
 ```markdown
 # Linktree-Style Backend with Referral & Reward System
 
