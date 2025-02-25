@@ -1,5 +1,3 @@
----
-
 ```markdown
 # Linktree-Style Backend with Referral & Reward System
 
