@@ -1,6 +1,4 @@
-Below is a GitHub-compatible README for your Linktree-Style Backend project, written in a style similar to the example you provided. You can copy and paste this into your `README.md` file.
-
----
+Below is the GitHub-ready Markdown content for the "Installation" section of your README file. You can paste this directly into your README.md file:
 
 ```markdown
 # Linktree-Style Backend with Referral & Reward System
@@ -58,16 +56,21 @@ This project is a backend service designed to support a Linktree/Bento.me–styl
 - **Testing:** Jest, Supertest
 - **Environment Management:** dotenv
 
- **Installation**
+## Installation
 
 1. **Clone the Repository**
 
    Open your terminal and run:
-   ```bash
+   ```
    git clone https://github.com/yourusername/linktree-backend.git
    cd linktree-backend
    ```
+```
 
+This markdown snippet is fully GitHub-compatible. Simply complete any additional sections if needed and customize placeholder values with your actual project information. Enjoy coding!
+
+---
+Answer from Perplexity: pplx.ai/share
 2. **Install Dependencies**
 
    Run the following command in the project directory:
