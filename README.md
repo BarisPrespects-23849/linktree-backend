@@ -58,7 +58,7 @@ This project is a backend service designed to support a Linktree/Bento.me–styl
 - **Testing:** Jest, Supertest
 - **Environment Management:** dotenv
 
-## Installation
+ **Installation**
 
 1. **Clone the Repository**
 
