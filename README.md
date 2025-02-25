@@ -1,6 +1,3 @@
-Below is the GitHub-ready Markdown content for the "Installation" section of your README file. You can paste this directly into your README.md file:
-
-```markdown
 # Linktree-Style Backend with Referral & Reward System
 
 A secure, scalable Node.js backend for a Linktree/Bento.me–style application. This project supports user registration, JWT-based authentication (with access and refresh tokens stored in HttpOnly cookies), a referral system with reward tracking, password reset functionality, and several security and performance enhancements. Comprehensive tests ensure that all features work as expected.
@@ -11,10 +8,13 @@ A secure, scalable Node.js backend for a Linktree/Bento.me–style application. 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
+- [Configuration](#configuration)
+- [Running the Application](#running-the-application)
+- [Testing](#testing)
 - [Project Structure](#project-structure)
-- [Challenges and Thought Process](#challenges-and-thought-process)
-- [Usage](#usage)
-- [Future Improvements](#future-improvements)
+- [Challenges and Solutions](#challenges-and-solutions)
+- [Security & Performance Enhancements](#security--performance-enhancements)
+- [Future Enhancements](#future-enhancements)
 - [License](#license)
 
 ## Overview
@@ -61,16 +61,11 @@ This project is a backend service designed to support a Linktree/Bento.me–styl
 1. **Clone the Repository**
 
    Open your terminal and run:
-   ```
+   ```bash
    git clone https://github.com/yourusername/linktree-backend.git
    cd linktree-backend
    ```
-```
 
-This markdown snippet is fully GitHub-compatible. Simply complete any additional sections if needed and customize placeholder values with your actual project information. Enjoy coding!
-
----
-Answer from Perplexity: pplx.ai/share
 2. **Install Dependencies**
 
    Run the following command in the project directory:
@@ -161,10 +156,10 @@ linktree-backend/
 │   │   └── cache.js                # Redis caching utility
 │   └── ...                         # Other supporting files
 ├── tests/
-│   ├── test.js                   # Integration tests for API endpoints
-│   └── validator.test.js         # Unit tests for custom validators
-├── .env                          # Environment variables (not committed to Git)
-├── .gitignore                    # Contains .env to prevent sensitive data from being committed
+│   ├── test.js                     # Integration tests for API endpoints
+│   └── validator.test.js           # Unit tests for custom validators
+├── .env                            # Environment variables (not committed to Git)
+├── .gitignore                      # Contains .env to prevent sensitive data from being committed
 ├── package.json
 └── README.md
 ```
@@ -181,7 +176,7 @@ linktree-backend/
 
 3. **Self-Referral Prevention:**
    - **Problem:** Users might try to refer themselves.
-   - **Solution:** Our registration logic checks that the referral code owner’s email does not match the registering user's email and returns an error if they match.
+   - **Solution:** Our registration logic checks that the referral code owner's email does not match the registering user's email and returns an error if they match.
 
 ## Security & Performance Enhancements
 
@@ -204,3 +199,6 @@ linktree-backend/
 - **Expand Caching Strategies:** Implement caching for additional endpoints as needed.
 - **Deployment Enhancements:** Containerize the application with Docker and use load balancers for production deployment.
 
+## License
+
+[MIT](LICENSE)
