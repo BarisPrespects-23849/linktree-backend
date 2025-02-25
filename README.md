@@ -1,3 +1,8 @@
+Below is a GitHub-compatible README file in Markdown format. You can copy and paste this into your repository's `README.md` file.
+
+---
+
+```markdown
 # Linktree-Style Backend with Referral & Reward System
 
 A secure, scalable Node.js backend for a Linktree/Bento.me–style application. This project provides user registration, JWT-based authentication (with access and refresh tokens stored in HttpOnly cookies), a referral system with reward tracking, password reset functionality, and various security and performance enhancements. Comprehensive tests ensure that all features work as expected.
@@ -56,3 +61,113 @@ A secure, scalable Node.js backend for a Linktree/Bento.me–style application. 
    ```bash
    git clone https://github.com/yourusername/linktree-backend.git
    cd linktree-backend
+   ```
+
+2. **Install Dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Install and Run Redis (for local development):**
+   - **macOS (using Homebrew):**
+     ```bash
+     brew install redis
+     redis-server
+     ```
+   - **Linux:**
+     ```bash
+     sudo apt-get update
+     sudo apt-get install redis-server
+     sudo systemctl start redis
+     ```
+   - **Windows:**  
+     Use Docker:
+     ```bash
+     docker run --name redis -p 6379:6379 -d redis
+     ```
+
+## Configuration
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+PORT=5001
+NODE_ENV=development
+DATABASE_URL=postgres://username:password@localhost:5432/yourdbname
+JWT_SECRET=your_jwt_secret_key
+JWT_REFRESH_SECRET=your_jwt_refresh_secret_key
+REDIS_URL=redis://localhost:6379
+```
+
+- Replace `username`, `password`, and `yourdbname` with your PostgreSQL credentials.
+- Generate secure values for `JWT_SECRET` and `JWT_REFRESH_SECRET` (e.g., using `openssl rand -base64 32`).
+
+## Running the Application
+
+Start the server with:
+
+```bash
+npm start
+```
+
+The server will run on the port specified in your `.env` file (default is 5001).
+
+## Testing
+
+The project includes comprehensive integration and unit tests using Jest and Supertest.
+
+1. **Run Tests:**
+
+   ```bash
+   npm test
+   ```
+
+2. **Redis Connection Note:**
+   - During testing, an open Redis connection may prevent Jest from exiting.
+   - Ensure your tests properly close the Redis connection by calling `redisClient.quit()` in your `afterAll` hook, or manually stop Redis after tests.
+   - In our setup, if Redis is not closed automatically, stopping Redis allowed Jest to exit properly.
+
+## Challenges and Solutions
+
+1. **Foreign Key Constraint Errors during Test Cleanup:**
+   - **Problem:** Rows in the `referrals` and `rewards` tables referenced test users, causing cleanup failures.
+   - **Solution:** We updated the `referred_by` field to `NULL` before deletion and ensured that we deleted from child tables (referrals and rewards) before deleting from the users table.
+
+2. **Redis Connection Hanging Jest:**
+   - **Problem:** An open Redis connection was preventing Jest from exiting.
+   - **Solution:** We ensured the Redis connection is properly closed by calling `redisClient.quit()` (or manually stopping Redis) after tests.
+
+3. **Self-Referral Prevention:**
+   - **Problem:** Users might try to refer themselves.
+   - **Solution:** Our registration logic checks that the referral code owner’s email does not match the registering user's email and returns an error if they match.
+
+## Security & Performance Enhancements
+
+- **Security:**
+  - **SQL Injection Protection:** Uses parameterized queries.
+  - **XSS Protection:** Helmet sets secure HTTP headers.
+  - **Rate Limiting:** express-rate-limit is applied to sensitive endpoints to prevent brute-force attacks.
+  - **Secure JWT Storage:** Tokens are stored in HttpOnly cookies to protect against XSS.
+  - **Input Validation:** Custom validators prevent malicious inputs.
+  - **CSRF Protection:** (Optional) Use csurf if using cookie-based sessions.
+
+- **Performance:**
+  - **Redis Caching:** Caches frequently accessed data (e.g., referral data) to reduce database load.
+  - **Scalability:** Stateless JWT authentication supports horizontal scaling and load balancing.
+
+## Future Enhancements
+
+- **Enable CSRF Protection:** Integrate csurf middleware for cookie-based sessions.
+- **Improve Logging and Monitoring:** Consider using Winston or Morgan along with external monitoring tools.
+- **Expand Caching Strategies:** Implement caching for additional endpoints as needed.
+- **Deployment Enhancements:** Containerize the application with Docker and use load balancers for production deployment.
+
+## License
+
+This project is licensed under the MIT License.
+```
+
+---
+
+This README is now GitHub-compatible and includes details about testing (including our test file and Redis connection note), security, performance enhancements, challenges we faced, and how we solved them. Feel free to modify any sections to better match your project's specifics or personal style.
