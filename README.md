@@ -15,7 +15,7 @@ A secure, scalable Node.js backend for a Linktree/Bento.me–style application. 
 - [Challenges and Solutions](#challenges-and-solutions)
 - [Security & Performance Enhancements](#security--performance-enhancements)
 - [Future Enhancements](#future-enhancements)
-
+- [Video Explation of the Project]
 
 ## Overview
 
@@ -199,3 +199,5 @@ linktree-backend/
 - **Expand Caching Strategies:** Implement caching for additional endpoints as needed.
 - **Deployment Enhancements:** Containerize the application with Docker and use load balancers for production deployment.
 
+## Video Explanation
+- ** https://drive.google.com/file/d/1EJClKUE7dQkiwOxaDA6s8930CRrdXvm-/view?usp=sharing **
