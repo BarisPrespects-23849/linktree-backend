@@ -15,7 +15,7 @@ A secure, scalable Node.js backend for a Linktree/Bento.me–style application. 
 - [Challenges and Solutions](#challenges-and-solutions)
 - [Security & Performance Enhancements](#security--performance-enhancements)
 - [Future Enhancements](#future-enhancements)
-- [Video Explation of the Project]
+- [Video Explation of the Project](#video-explanation)
 
 ## Overview
 
